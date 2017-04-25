@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="RadioInformationCenter.View.TabItems.LoggingWorkRicView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RadioInformationCenter.View.TabItems"
+             xmlns:localization="clr-namespace:RadioInformationCenter.Localization"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:converter="clr-namespace:RadioInformationCenter.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1000">
+
+    <UserControl.Resources>
+        <system:Double x:Key="DateThickness">150</system:Double>
+        <converter:ModuleWorkTypeToVisibilityConverter x:Key="ModuleWorkTypeToVisibilityConverter"/>
+        <converter:ModuleWorkTypeToStringConverter x:Key="ModuleWorkTypeToStringConverter"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <GroupBox Header="{x:Static localization:Resources.ID_CAPTION_ChoiceByTime}"
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Margin="5">
+
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition MinWidth="130" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition MinWidth="130" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="{x:Static localization:Resources.ID_CAPTION_StartTime}" VerticalAlignment="Center" Margin="0,0,10,0" />
+
+                    <dxe:DateEdit Grid.Column="1" Grid.Row="0" Height="25" Width="{StaticResource DateThickness}"
+                                  MinWidth="100"
+                                  EditValue="{Binding Start}"
+                                  Mask="d MMMM yyyy"
+                                  MaskUseAsDisplayFormat="True" />
+
+                    <TextBlock Grid.Column="2" Grid.Row="0" Text="{x:Static localization:Resources.ID_CAPTION_EndTime}" VerticalAlignment="Center" Margin="10,0,10,0" />
+
+                    <dxe:DateEdit Grid.Column="3" Grid.Row="0" Height="25" Width="{StaticResource DateThickness}"
+                                  MinWidth="100"
+                                  EditValue="{Binding End}"
+                                  Mask="d MMMM yyyy"
+                                  MaskUseAsDisplayFormat="True" />
+
+                    <dxe:ButtonEdit Grid.Column="1" Grid.Row="1" Height="25" Width="{StaticResource DateThickness}"
+                                    MinWidth="100" Margin="0,10,0,0"
+                                    EditValue="{Binding Start}"
+                                    MaskType="DateTime"
+                                    Mask="HH:mm:ss"
+                                    MaskUseAsDisplayFormat="True"
+                                    AllowDefaultButton="False">
+                        <dxe:SpinButtonInfo IsDefaultButton="True" />
+                    </dxe:ButtonEdit>
+
+                    <dxe:ButtonEdit Grid.Column="3" Grid.Row="1" Height="25" Width="{StaticResource DateThickness}"
+                                    MinWidth="100" Margin="0,10,0,0"
+                                    EditValue="{Binding End}"
+                                    MaskType="DateTime"
+                                    Mask="HH:mm:ss"
+                                    MaskUseAsDisplayFormat="True"
+                                    AllowDefaultButton="False">
+                        <dxe:SpinButtonInfo IsDefaultButton="True" />
+                    </dxe:ButtonEdit>
+                </Grid>
+            </GroupBox>
+
+            <DataGrid Grid.Row="0"
+                      Grid.RowSpan="3"
+                      Grid.Column="1"
+                      ItemsSource="{Binding Path=RicEvents}"
+                      AutoGenerateColumns="False" 
+                      HorizontalGridLinesBrush="DarkGray"
+                      RowBackground="LightGray" AlternatingRowBackground="White">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static localization:Resources.ID_CAPTION_DateTime}" 
+                                        Binding="{Binding Path=DateTime}" 
+                                        Width="150" 
+                                        MinWidth="150"/>
+                    <DataGridTextColumn Header="{x:Static localization:Resources.ID_CAPTION_Information}" 
+                                        Binding="{Binding Path=Message}" 
+                                        Width="300" 
+                                        MinWidth="300" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <!--   Таблица вывода-->
+<!--            <dxg:GridControl Grid.Row="0"
+                                     Grid.RowSpan="3"
+                                     Grid.Column="1"
+                                     Visibility="Visible" 
+                                     EnableSmartColumnsGeneration="True" 
+                                     ItemsSource="{Binding Path=RicEvents}">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn Header="{x:Static localization:Resources.ID_CAPTION_DateTime}" 
+                                    FieldName="DateTime"
+                                    ReadOnly="True"
+                                MinWidth="100"
+                                    HorizontalHeaderContentAlignment="Center">
+
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:TextEditSettings/>
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn FieldName="Message"
+                                Width="500"
+                                ReadOnly="True"
+                                HorizontalHeaderContentAlignment="Center"
+                                Header="{x:Static localization:Resources.ID_CAPTION_Information}" SortOrder="Ascending" SortIndex="0">
+
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:TextEditSettings TextWrapping="Wrap"/>
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                </dxg:GridControl.Columns>
+
+                <dxg:GridControl.View>
+                    <dxg:TableView ShowColumnHeaders="True" ShowGroupPanel="False" AllowPerPixelScrolling="True" ShowTotalSummary="True">
+                    </dxg:TableView>
+                </dxg:GridControl.View>
+            </dxg:GridControl>-->
+
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <Button Content="{x:Static localization:Resources.ID_CAPTION_Apply}" Margin="5" Command="{Binding Path=LoadRicMessageCommand}"></Button>
+            </StackPanel>
+        </Grid>
+
+<!--        <Grid Visibility="{Binding Path=ModuleWorkType, Converter={StaticResource ModuleWorkTypeToVisibilityConverter}}" Opacity="1" >
+            <UserControl Background="Black" Opacity="0.5" />
+            <dx:WaitIndicator DeferedVisibility="True" Content="{Binding Path=ModuleWorkType, Converter={StaticResource ModuleWorkTypeToStringConverter}}" FontSize="16" Opacity="1" >
+                <dx:WaitIndicator.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding}"
+                                       Foreground="White" 
+                                       HorizontalAlignment="Center" 
+                                       TextWrapping="Wrap" 
+                                       TextAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="24"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </dx:WaitIndicator.ContentTemplate>
+            </dx:WaitIndicator>
+        </Grid>-->
+
+    </Grid>
+</UserControl>

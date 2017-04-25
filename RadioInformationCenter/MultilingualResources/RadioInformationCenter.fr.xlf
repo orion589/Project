@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="ru" target-language="fr" original="RADIOINFORMATIONCENTER/LOCALIZATION/RESOURCES.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.1795.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="RADIOINFORMATIONCENTER/LOCALIZATION/RESOURCES.RESX" datatype="resx">
+        <trans-unit id="ID_CAPTION_WorkRIC" translate="yes" xml:space="preserve">
+          <source>Протоколирование работы РИЦ</source>
+          <target state="translated" state-qualifier="mt-suggestion">Travaux d’exploitation forestière RIC</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Протоколирование работы РИЦ</note>
+        </trans-unit>
+        <trans-unit id="ID_CAPTION_ChoiceByTime" translate="yes" xml:space="preserve">
+          <source>Селекция по времени</source>
+          <target state="translated" state-qualifier="mt-suggestion">Temps de reproduction</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Селекция по времени</note>
+        </trans-unit>
+        <trans-unit id="ID_CAPTION_StartTime" translate="yes" xml:space="preserve">
+          <source>Начало</source>
+          <target state="translated" state-qualifier="tm-suggestion">Début</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Начало
+</note>
+        </trans-unit>
+        <trans-unit id="ID_CAPTION_EndTime" translate="yes" xml:space="preserve">
+          <source>Окончание</source>
+          <target state="translated" state-qualifier="tm-suggestion">Arrêter la lecture</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Окончание</note>
+        </trans-unit>
+        <trans-unit id="ID_CAPTION_DateTime" translate="yes" xml:space="preserve">
+          <source>Дата/Время</source>
+          <target state="translated" state-qualifier="mt-suggestion">Date/heure</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Дата/Время</note>
+        </trans-unit>
+        <trans-unit id="ID_CAPTION_Apply" translate="yes" xml:space="preserve">
+          <source>Выполнить</source>
+          <target state="translated" state-qualifier="tm-suggestion">Exécuter</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Выполнить</note>
+        </trans-unit>
+        <trans-unit id="ID_CAPTION_RecordingInputRIC" translate="yes" xml:space="preserve">
+          <source>Протоколирование входной информации РИЦ</source>
+          <target state="translated" state-qualifier="mt-suggestion">Consignation d’informations entrantes RIC</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Протоколирование входной информации РИЦ</note>
+        </trans-unit>
+        <trans-unit id="ID_CAPTION_LoggingOutpuRIC" translate="yes" xml:space="preserve">
+          <source>Протоколирование выходной информации РИЦ</source>
+          <target state="translated" state-qualifier="mt-suggestion">Sortie d’enregistrement CRIS</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Протоколирование выходной информации РИЦ</note>
+        </trans-unit>
+        <trans-unit id="ID_CAPTION_Information" translate="yes" xml:space="preserve">
+          <source>Сообщение</source>
+          <target state="translated" state-qualifier="tm-suggestion">Destinataire</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Сообщение</note>
+        </trans-unit>
+        <trans-unit id="ID_CAPTION_TypeMessage" translate="yes" xml:space="preserve">
+          <source>Тип сообщения</source>
+          <target state="new">Тип сообщения</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Тип сообщения</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
